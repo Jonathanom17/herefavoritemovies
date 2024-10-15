@@ -13,7 +13,11 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 })
 export class AppComponent {
   
- 
+ constructor(private appSV:MovieTMDBService){
+  this.appSV.llenarArrayMovies();
+    this.appSV.orderArrayByVote();
+  
+ }
   
   
   

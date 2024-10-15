@@ -31,14 +31,7 @@ export class CardMoviesComponent  {
 
 
   getDataMovies(): Result[]{
-      if(this.actionFilter==="filterYear"){
-        this.appService.llenarArrayFilterYear()
-        return this.appService.getArrayMoviesFilter();
-       }else if(this.actionFilter==="28"){
-          this.appService.llenarArrayFilterGenero(28)
-          return this.appService.getArrayMoviesGenero();
-      }
-
+      
      return []
   }
   

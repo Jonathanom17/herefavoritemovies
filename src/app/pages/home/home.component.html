@@ -1,2 +1,11 @@
 
-<component-card-movies [actionFilter]="filterArray"/>
+<!-- <component-card-movies [actionFilter]="filterArray"/> -->
+
+<section class="slider">
+    @for (pelicula of getDataMovies(); track $index) {
+        <img [src]="pelicula.poster_path" priority  />
+
+      
+         
+    }
+</section>

@@ -1,7 +1,32 @@
-<div class="container-button">
-    <button mat-button (click)="getFiltroGenero('28')" >Acción</button>
-    <button mat-button >Comedia</button>
+<div class="container-button" >
+    <button mat-button  color="warn"  (click)="getFiltroGenero('action')"  >Acción</button>
+    <button mat-button color="warn" (click)="getFiltroGenero('Animation')">Animación</button>
+    <button mat-button color="warn" (click)="getFiltroGenero('Horror')">Terror</button>
+    <button mat-button color="warn" (click)="getFiltroGenero('Comedy')">Comedia</button>
 </div>
 
-<component-card-movies [actionFilter]="filterArray"/>
+<ng-container >
+    <div class="peliculas-contenedor">
+      @for (pelicula of arrayMovies; track $index) {
+      <mat-card class="pelicula-contenedor">
+       
+          @if(pelicula.original_title){
+          <img [src]="pelicula.poster_path" width="170" height="250" />
+          } @else {
+          <img srcc="" width="169" height="250" />
+          }
+        
+        <p>
+         
+        </p>
+        
+          <ng-container >
+            
+          </ng-container>
+        
+  
+      </mat-card>
+      }
+    </div>
+  </ng-container>
 

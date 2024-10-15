@@ -8,6 +8,7 @@ export const routes: Routes = [
         { path: '', component: HomeComponent },
         { path: 'home', component: HomeComponent },
         { path: 'genero', component: PageGeneroMovieComponent },
+        
         {path: '**', redirectTo: ''},
 
 ];
