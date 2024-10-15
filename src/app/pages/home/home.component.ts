@@ -10,11 +10,17 @@ import { MovieTMDBService } from '../../Services/tmdb-api.component';
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
-export class HomeComponent {
-
+export class HomeComponent implements OnInit{
+  filterArray:string="filterYear";
   constructor(private appSV: MovieTMDBService){
-    //this.appSV.llenarArrayFull();
-    this.appSV.llenarArrayFilter();
+    
+    
+    
+  }
+  ngOnInit(): void {
+
+    
+    this.appSV.llenarArrayMovies();
   }
 
 

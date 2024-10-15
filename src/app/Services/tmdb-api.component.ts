@@ -24,64 +24,65 @@ export class MovieTMDBService {
   peticionApiMovies(indexPage: number): Observable<IMovies> {
     return this.http.get<IMovies>(`${this.urlRoot}api_key=${this.api_key}&page=${indexPage}&sort_by=popularity.desc`)
   }
-  // peticionApiMoviesPopular(indexPage: number): Observable<IMovies> {
-  //   return this.http.get<IMovies>(`https://api.themoviedb.org/3/movie/popular?api_key=f891bdca8817d8d4ec59d41bf5682716&page=${indexPage}`)
-  // }
-  // llenarArrayFull(): void {
-  //   for (let i = 1; i < 500; i++) {
-  //     this.peticionApiMovies(i).
-  //       subscribe(objctMovies => {
-  //         objctMovies.results.flatMap((movie) => {
-  //           movie.poster_path = `${this.img}${movie.poster_path}`;
-  //           this.arrayFullMovies.push(movie);
-  //         })
-  //       })
-  //   }
 
-  // }
-  getArrayMovies(): Result[] {
-    return this.arrayFullMovies;
-  }
 
-  llenarArrayFilter(): void {
-    this.arrayFillterMovies = [];
-    let release_date;
-    let year = new Date();
-    for (let i:number = 1; i < 500; i++) {
+
+  llenarArrayMovies(): void {
+   
+    for (let i: number = 1; i < 500; i++) {
       this.peticionApiMovies(i).
         subscribe(objctMovies => {
           objctMovies.results.flatMap((movie) => {
             movie.poster_path = `${this.img}${movie.poster_path}`;
-            release_date = new Date(movie.release_date);
-            if (release_date.getFullYear()===year.getFullYear() && movie.popularity>200) {
-              this.arrayFillterMovies.push(movie)
-              console.log(movie.popularity)
-            }
+            movie.release_date = new Date(movie.release_date);
+            this.arrayFullMovies.push(movie);
+            
           })
         })
     }
-
+  }
+  getArrayMovies(): Result[] {
+    
+    return this.arrayFullMovies;
   }
 
-  getArrayMoviesFilter(): Result[] {
-    return this.arrayFillterMovies;
-  }
 
-  getDataMoviesYear(): Result[] {
-    let release_date;
+  llenarArrayFilterYear(): void {
+    this.arrayFillterMovies = [];
     let year = new Date();
+    for (let i: number = 1; i < this.arrayFullMovies.length; i++) {
+      if (this.arrayFullMovies[i].release_date.getFullYear() === year.getFullYear() && this.arrayFullMovies[i].popularity > 150) {
+        this.arrayFillterMovies.push(this.arrayFullMovies[i])
+        
+      }
+    }
+  }
+contador=0;
+  getArrayMoviesFilter(): Result[] {
+
+    return this.arrayFillterMovies;
+    
+  }
+
+
+  llenarArrayFilterGenero(idGenero: number): void {
     this.arrayFillterMovies = [];
     for (let i: number = 1; i < this.arrayFullMovies.length; i++) {
-      release_date = new Date(this.arrayFullMovies[i].release_date);
-      if (release_date.getFullYear() == year.getFullYear() && this.arrayFullMovies[i].vote_average > 4000) {
-        this.arrayFillterMovies.push(this.arrayFullMovies[i])
-        console.log(this.arrayFullMovies[i].original_title + "" + this.arrayFullMovies[i].vote_average)
+      for(let j: number = 1; j < this.arrayFullMovies[i].genre_ids.length; j++){
+        
+        if (this.arrayFullMovies[i].genre_ids[j]===idGenero) {
+          console.log(this.arrayFullMovies[i].genre_ids)
+          console.log(this.arrayFullMovies[i].genre_ids[j])
+            this.arrayFillterMovies.push(this.arrayFullMovies[i])
+            
+        }
       }
-
     }
+  }
 
+  getArrayMoviesGenero(): Result[] {
+    
     return this.arrayFillterMovies;
-
   }
 
 

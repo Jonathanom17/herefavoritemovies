@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 
@@ -19,16 +19,27 @@ import { MovieTMDBService } from '../../Services/tmdb-api.component';
   styleUrl: './card-movies.component.css'
 })
 export class CardMoviesComponent  {
+
+  @Input()
+  actionFilter="";
    arrayMovies:Result[]=[];
 
   constructor(private appService:MovieTMDBService){
     
   }
+ 
 
 
   getDataMovies(): Result[]{
-    return this.appService.getArrayMoviesFilter();
-     
+      if(this.actionFilter==="filterYear"){
+        this.appService.llenarArrayFilterYear()
+        return this.appService.getArrayMoviesFilter();
+       }else if(this.actionFilter==="28"){
+          this.appService.llenarArrayFilterGenero(28)
+          return this.appService.getArrayMoviesGenero();
+      }
+
+     return []
   }
   
 }
