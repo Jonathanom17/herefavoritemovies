@@ -10,13 +10,11 @@ import { MovieTMDBService } from './Services/tmdb-api.component';
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent implements OnInit{
+export class AppComponent {
   
-  constructor(private apiMovie: MovieTMDBService){
-
-  }
-  ngOnInit(): void {
-    this.apiMovie.llenarArray();
-  }
-  title = 'herefavoritemovies';
+ 
+  
+  
+  
+  title = 'HereFavoriteMovies';
 }

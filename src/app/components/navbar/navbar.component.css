@@ -1,0 +1,19 @@
+mat-toolbar {
+    position: sticky;
+    position: -webkit-sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: cornflowerblue;
+    background: linear-gradient(207.8deg, #201E1C 30%, #4947d4 70%);
+    color: white;
+} 
+
+
+  .mat-button{
+     color: white;
+  }
+  .spacer{
+    flex: 1 1 auto;
+  }
+
+
