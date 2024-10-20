@@ -16,7 +16,7 @@ export class AppComponent {
  constructor(private appSV:MovieTMDBService){
   this.appSV.llenarArrayMovies();
     this.appSV.orderArrayByVote();
-  
+    
  }
   
   

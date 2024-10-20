@@ -1,11 +1,24 @@
 
-<!-- <component-card-movies [actionFilter]="filterArray"/> -->
+
 
 <section class="slider">
+  
     @for (pelicula of getDataMovies(); track $index) {
+        
         <img [src]="pelicula.poster_path" priority  />
 
       
          
     }
 </section>
+
+<!-- <div class="slider">
+    @for (pelicula of getDataMovies(); track $index) {
+        
+        <img [src]="pelicula.backdrop_path" class="backdrop" />
+        <img [src]="pelicula.poster_path"  class="poster" />
+
+      
+         
+    }
+</div> -->
