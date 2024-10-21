@@ -9,16 +9,19 @@ import { MatIconModule } from '@angular/material/icon';
 import { MovieTMDBService } from '../../Services/tmdb-api.component';
 import { Result } from '../../interfaces/movies-interface';
 import { ListaGenero } from '../../interfaces/list-Genero';
+import { LoandingComponent } from "../../components/loanding/loanding.component";
 @Component({
   selector: 'app-page-genero-movie',
   standalone: true,
   imports: [
     RouterLink,
-    MatButtonModule, 
-    MatMenuModule, 
+    MatButtonModule,
+    MatMenuModule,
     CardMoviesComponent,
     MatCardModule,
-    MatIconModule],
+    MatIconModule,
+    LoandingComponent
+],
   templateUrl: './page-genero-movie.component.html',
   styleUrl: './page-genero-movie.component.css'
 })

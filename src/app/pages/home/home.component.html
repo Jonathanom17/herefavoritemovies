@@ -5,7 +5,7 @@
   
     @for (pelicula of getDataMovies(); track $index) {
         
-        <img [src]="pelicula.poster_path" priority  />
+        <img loading="lazy" [src]="pelicula.poster_path" priority  />
 
       
          

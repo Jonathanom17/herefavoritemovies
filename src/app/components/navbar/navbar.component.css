@@ -17,3 +17,11 @@ mat-toolbar {
   }
 
 
+  .degradado-texto {
+    color: transparent;
+    background: linear-gradient(to right, #1073BA 0%, #00DA55 100% );
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+

@@ -28,10 +28,7 @@ export class HomeComponent implements OnInit{
   }
 
   getDataMovies(): Result[]{
-    this.counter.subscribe(s => {
-      this.isLoanding=false;
-     
-    });
+   
 
     return this.appSV.getArrayMoviesExtrenos();
 }
